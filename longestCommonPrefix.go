@@ -6,8 +6,7 @@ func longestCommonPrefix(strs []string) string {
         result = strs[0]
         return result
 	}
-	var minlen,maxlen int
-    minlen, maxlen = maxLen(strs)
+    minlen, maxlen := maxLen(strs)
     if minlen == 0 {
         return result
     }
