@@ -6,11 +6,12 @@ func longestCommonPrefix(strs []string) string {
         result = strs[0]
         return result
 	}
-    minlen, maxlen := maxLen(strs)
+	var minlen int
+    minlen = maxLen(strs)
     if minlen == 0 {
         return result
     }
-	for i:= 0; i < maxlen; i++{
+	for i:= 0; i < minlen; i++{
         before := ""
 		for _, str := range strs{
 			if before == "" {
@@ -32,27 +33,22 @@ func getRuneAt(s string, i int) string {
     return string(rs[i])
 }
 
-func maxLen(strs []string) (int, int) {
+func maxLen(strs []string) int {
     var minlen int
-    var maxlen int
     for n, str := range strs {
-        if n == 1{
+        if n == 0{
             minlen=len(str)
-            maxlen=len(str)
             continue
         }
-        if len(str) < minlen  {
-            minlen = len(str)            
-        }
-        if len(str) >maxlen {
-            maxlen = len(str)
+        if len(str) < minlen {
+            minlen = len(str)
         }
 }
-    return minlen, maxlen
+    return minlen
 }
 
 func main(){
-	input := []string{"", "b"}
+	input := []string{"a", "aa"}
 	hoge := ""
 	var hogehoge int 
 	hogehoge = len(hoge)
