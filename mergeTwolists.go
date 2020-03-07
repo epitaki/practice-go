@@ -16,18 +16,18 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 	for {
 		if l1.Val <= l2.Val{
+			if lastOfSortedNode !=nil {lastOfSortedNode.Next = l1}
 			if l1.Next==nil {
 				l1.Next = l2
 				break
 			}
-			if lastOfSortedNode !=nil {lastOfSortedNode.Next = l1}
 			l1, l2, lastOfSortedNode= newTwoLists(l1,l2)
 		} else {
+			if lastOfSortedNode !=nil {lastOfSortedNode.Next = l2}
 			if l2.Next == nil {
 				l2.Next = l1
 				break
 			}
-			if lastOfSortedNode !=nil {lastOfSortedNode.Next = l2}
 			l1, l2, lastOfSortedNode = newTwoLists(l2, l1)
 		}
 	}
